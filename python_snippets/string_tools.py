@@ -25,3 +25,12 @@ def remove_subs(s, substring_list):
     for sub in substring_list:
         s = s.replace(sub,'')
     return s
+
+def series_get_text(s):
+    print(type(s.values[0]))
+    print(s.values[0])
+    if type(s.values[0]) is np.ndarray:
+        all_text = '\n'.join([item for sublist in s.fillna('').values for item in sublist])
+    else:
+        all_text = '\n'.join(s.fillna('').values)
+    return all_text
