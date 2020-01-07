@@ -34,3 +34,7 @@ def series_get_text(s):
     else:
         all_text = '\n'.join(s.fillna('').values)
     return all_text
+
+def remove_accents(input_str):
+    return u"".join([c for c in unicodedata.normalize('NFKD', input_str)
+                     if not unicodedata.combining(c)])
